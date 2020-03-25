@@ -1,0 +1,110 @@
+<html>
+<% include ../../templates/tag_head %>
+<body class="hold-transition skin-yellow static sidebar-mini">
+    <!-- Site wrapper-->
+    <div class="wrapper">
+        <% include ../../templates/tag_navbar %>
+
+        <% include ../../templates/tag_sidebar %>
+        <!-- Content Wrapper. Contains page content -->
+        <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Data Lensa
+          </h1>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+          <div class="row">
+            <div class="col-12">
+
+              <div class="box box-solid bg-dark">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Data Lensa</h3>
+                  <h6 class="box-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
+                  <br/>
+                  <a class='btn btn-info' href='/data_lensa/add'>add lensa</a>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+    				<div class="table-responsive">
+    				  <table id="example" class="table table-bordered table-hover display nowrap margin-top-10 w-p100">
+    					<thead>
+    						<tr>
+                  <th>id</th>
+    							<th>Lensa</th>
+    							<th>Harga</th>
+                  <th>Stock</th>
+    							<th>Action</th>
+    						</tr>
+    					</thead>
+    					<tbody>
+                 <% data_lensa.forEach(function( eachlensa){ %>
+                  <tr>
+                      <td> <%= eachlensa._id %> </td>
+                      <td> <%= eachlensa.lensa %> </td>
+                      <td> <%= eachlensa.harga %> </td>
+                      <td> <%= eachlensa.stock %> </td>
+                      <td><a href='/data_lensa/edit/<%= eachlensa.id %>' class='btn btn-warning' style='color:white'>Edit</a>
+                          <a href="/data_lensa/del/<%= eachlensa.id %>" class='btn btn-danger' style='color:white'>Delete</a>
+                      </td>
+                  </tr>
+                <% })%>
+    					</tbody>
+    					<tfoot>
+                <tr>
+                  <th>id</th>
+    							<th>Lensa</th>
+    							<th>Harga</th>
+                  <th>Stock</th>
+    							<th>Action</th>
+    						</tr>
+    					</tfoot>
+    				</table>
+    				</div>
+                </div>
+                <!-- /.box-body -->
+              </div>
+              <!-- /.box -->
+
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </section>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+
+
+
+        <% include ../../templates/tag_foot %>
+    </div>
+    <!-- ./wrapper-->
+    <% include ../../templates/tag_script %>
+
+  	<!-- DataTables -->
+  	<script src="http://localhost:8000/assets/vendor_components/datatables.net/js/jquery.dataTables.min.js"></script>
+  	<script src="http://localhost:8000/assets/vendor_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+    <!-- This is data table -->
+    <script src="http://localhost:8000/assets/vendor_plugins/DataTables-1.10.15/media/js/jquery.dataTables.min.js"></script>
+
+    <!-- start - This is for export functionality only -->
+    <script src="http://localhost:8000/assets/vendor_plugins/DataTables-1.10.15/extensions/Buttons/js/dataTables.buttons.min.js"></script>
+    <script src="http://localhost:8000/assets/vendor_plugins/DataTables-1.10.15/extensions/Buttons/js/buttons.flash.min.js"></script>
+    <script src="http://localhost:8000/assets/vendor_plugins/DataTables-1.10.15/ex-js/jszip.min.js"></script>
+    <script src="http://localhost:8000/assets/vendor_plugins/DataTables-1.10.15/ex-js/pdfmake.min.js"></script>
+    <script src="http://localhost:8000/assets/vendor_plugins/DataTables-1.10.15/ex-js/vfs_fonts.js"></script>
+    <script src="http://localhost:8000/assets/vendor_plugins/DataTables-1.10.15/extensions/Buttons/js/buttons.html5.min.js"></script>
+    <script src="http://localhost:8000/assets/vendor_plugins/DataTables-1.10.15/extensions/Buttons/js/buttons.print.min.js"></script>
+    <!-- end - This is for export functionality only -->
+
+	   <!-- Crypto_Admin for Data Table -->
+	   <script src="../../js/pages/data-table.js"></script>
+</body>
+
+</html>

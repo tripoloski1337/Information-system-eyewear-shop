@@ -1,0 +1,170 @@
+<html>
+<% include ../../templates/tag_head %>
+<body class="hold-transition skin-yellow static sidebar-mini">
+    <!-- Site wrapper-->
+    <div class="wrapper">
+        <% include ../../templates/tag_navbar %>
+
+        <% include ../../templates/tag_sidebar %>
+
+        <!-- ===============================================-->
+        <!-- Content Wrapper. Contains page content-->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header)-->
+            <section class="content-header">
+                <h1>Transaksi</h1>
+            </section>
+            <!-- Main content-->
+            <section class="content">
+              
+                <!-- Default box-->
+                <!-- Default box-->
+                <form action="" method="get">
+                  <div class="box">
+                      <div class="box-header with-border">
+                          <h3 class="box-title">Listing item</h3>
+                          <div class="box-tools pull-right"><button class="btn btn-box-tool" type="button" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button><button class="btn btn-box-tool" type="button" data-widget="remove" data-toggle="tooltip"
+                                  title="Remove"><i class="fa fa-times"></i></button></div>
+                      </div>
+                      <div class="box-body">
+                        <table class="table">
+                          <tr>
+                          </tr>
+                          <tr>
+                            <td>
+                              Lensa kiri
+                            </td>
+                            <td>
+                              <select class="form-control" name="lens_left">
+                              	<% data_lensa.forEach(function( eachlensa){ %>
+                                  <option value="<%= eachlensa._id %>"> <%= eachlensa.lensa %> </option>
+                                <% })%>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              Lensa kanan
+                            </td>
+                            <td>
+                              <select class="form-control" name="lens_right">
+                                <% data_lensa.forEach(function( eachlensa){ %>
+                                  <option value="<%= eachlensa._id %>"> <%= eachlensa.lensa %> </option>
+                                <% })%>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              Frame
+                            </td>
+                            <td>
+                              <select class="form-control" name="frame">
+                                <% data_frame.forEach(function( eachFrame){ %>
+                                  <option value="<%= eachFrame._id %>"> <%= eachFrame.merk %> </option>
+                                <% })%>
+                              </select>
+                            </td>
+                          </tr>
+
+
+                        </table>
+                      </div>
+                      <!-- /.box-body-->
+                      <div class="box-footer">
+                        <button class='btn btn-block btn-black'>Submit!</button>
+                      </div>
+                      <!-- /.box-footer-->
+                      <!-- /.box-->
+                      <!-- /.content-->
+                  </div>
+                </form>
+            </section>
+        </div>
+        <!-- /.content-wrapper-->
+
+        <% if(data == 'ada') {%>
+        <!-- ===============================================-->
+        <!-- Content Wrapper. Contains page content-->
+        <div class="content-wrapper" id="total">
+
+            <!-- Main content-->
+            <section class="content">
+              
+                <!-- Default box-->
+                <!-- Default box-->
+                <form action="/transaksi" method="post">
+                  <div class="box">
+                      <div class="box-header with-border">
+                          <h3 class="box-title">Payment</h3>
+                          <div class="box-tools pull-right"><button class="btn btn-box-tool" type="button" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button><button class="btn btn-box-tool" type="button" data-widget="remove" data-toggle="tooltip"
+                                  title="Remove"><i class="fa fa-times"></i></button></div>
+                      </div>
+                      <div class="box-body">
+                        <table class="table">
+                          <tr>
+                          </tr>
+                          <tr>
+                            <td>
+                              Lensa kiri
+                            </td>
+                            <td>
+                              <input type="text" name="id_left" value="<%= tmp_lens_left[0]._id %>" hidden="hidden">
+                              <input type="text" name="left" value="<%= tmp_lens_left[0].harga %>"  class="form-control">
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              Lensa kanan
+                            </td>
+                            <td>
+                              <input type="text" name="id_right" value="<%= tmp_lens_right[0]._id %>" hidden="hidden">
+                              <input type="text" name="right" value="<%= tmp_lens_right[0].harga %>"  class="form-control">
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              Frame
+                            </td>
+                            <td>
+                              <input type="text" name="id_frame" value="<%= tmp_frame[0]._id %>" hidden="hidden">
+                              <input type="text" name="frame_used" value="<%= tmp_frame[0].harga %>"   class="form-control">
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              Total Harga
+                            </td>
+                            <td>
+                              <input type="text" name="total" value="<%= total_harga %>"   class="form-control">
+                            </td>
+                          </tr>
+
+
+                        </table>
+                      </div>
+                      <!-- /.box-body-->
+                      <div class="box-footer">
+                        <button class='btn btn-block btn-black'>Procced!</button>
+                      </div>
+                      <!-- /.box-footer-->
+                      <!-- /.box-->
+                      <!-- /.content-->
+                  </div>
+                </form>
+            </section>
+        </div>
+        <!-- /.content-wrapper-->
+        <%}%>
+        <% include ../../templates/tag_foot %>
+    </div>
+    <!-- ./wrapper-->
+    <% include ../../templates/tag_script %>
+</body>
+
+</html>
